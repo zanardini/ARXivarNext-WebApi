@@ -32,6 +32,22 @@ namespace ExampleARXivarNext
         public FormArxivar()
         {
             InitializeComponent();
+
+            if (System.IO.File.Exists(@"c:\temp\ARXivar\UsernameARXivar.txt"))
+            {
+                var txt = System.IO.File.ReadAllLines(@"c:\temp\ARXivar\UsernameARXivar.txt");
+                if (txt.Length > 0)
+                    _txtUrl.Text = txt[0];
+                if (txt.Length > 1)
+                    _txtUsername.Text = txt[1];
+                if (txt.Length > 2)
+                    _txtPassword.Text = txt[2];
+                if (txt.Length > 3)
+                    _txtClientId.Text = txt[3];
+                if (txt.Length > 4)
+                    _txtClientSecret.Text = txt[4];
+
+            }
         }
 
         private void _btnLogin_Click(object sender, EventArgs e)
