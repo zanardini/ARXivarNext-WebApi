@@ -907,7 +907,9 @@ namespace ExampleARXivarNext
                 IO.Swagger.Model.RemoteSignResponseDTO remoteSignResponseDTO = signApi.SignRemoteSign(new IO.Swagger.Model.RemoteSignRequestDTO(signCertDTO.Id, password, null, otp, signElementList));
                 string signRequestId = remoteSignResponseDTO.SignRequestId;
 
-
+                IO.Swagger.Api.QueueApi queueApi = new IO.Swagger.Api.QueueApi(Configuration);
+                IO.Swagger.Model.QueueAggregationStatusInfoDto queueAggregationStatusInfoDto = queueApi.QueueGetQueueAggregationStatusInfo(signRequestId);
+                var status = queueAggregationStatusInfoDto.QueueStatus;
             }
             catch (Exception ex)
             {
