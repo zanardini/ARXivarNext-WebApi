@@ -82,6 +82,9 @@
             this._txtLog = new System.Windows.Forms.TextBox();
             this.button16 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.button17 = new System.Windows.Forms.Button();
+            this.ComboSignCert = new System.Windows.Forms.ComboBox();
+            this.button18 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -235,7 +238,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 172);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(444, 453);
+            this.tabControl1.Size = new System.Drawing.Size(371, 453);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -615,11 +618,14 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.button18);
+            this.tabPage7.Controls.Add(this.ComboSignCert);
+            this.tabPage7.Controls.Add(this.button17);
             this.tabPage7.Controls.Add(this.button15);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(436, 424);
+            this.tabPage7.Size = new System.Drawing.Size(363, 424);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Firma";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -629,7 +635,7 @@
             this.button15.Location = new System.Drawing.Point(8, 7);
             this.button15.Margin = new System.Windows.Forms.Padding(4);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(253, 28);
+            this.button15.Size = new System.Drawing.Size(273, 28);
             this.button15.TabIndex = 5;
             this.button15.Text = "Verifica firma by docnumber";
             this.button15.UseVisualStyleBackColor = true;
@@ -643,9 +649,9 @@
             this.groupBox2.Controls.Add(this.splitter1);
             this.groupBox2.Controls.Add(this._txtLog);
             this.groupBox2.Controls.Add(this.Table);
-            this.groupBox2.Location = new System.Drawing.Point(465, 171);
+            this.groupBox2.Location = new System.Drawing.Point(386, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(661, 454);
+            this.groupBox2.Size = new System.Drawing.Size(740, 454);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
@@ -657,18 +663,18 @@
             this.Table.Margin = new System.Windows.Forms.Padding(4);
             this.Table.Name = "Table";
             this.Table.RowHeadersWidth = 51;
-            this.Table.Size = new System.Drawing.Size(655, 433);
+            this.Table.Size = new System.Drawing.Size(734, 433);
             this.Table.TabIndex = 1;
             // 
             // _txtLog
             // 
             this._txtLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._txtLog.Location = new System.Drawing.Point(3, 368);
+            this._txtLog.Location = new System.Drawing.Point(3, 324);
             this._txtLog.Multiline = true;
             this._txtLog.Name = "_txtLog";
             this._txtLog.ReadOnly = true;
             this._txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this._txtLog.Size = new System.Drawing.Size(655, 83);
+            this._txtLog.Size = new System.Drawing.Size(734, 127);
             this._txtLog.TabIndex = 5;
             // 
             // button16
@@ -685,11 +691,42 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(3, 365);
+            this.splitter1.Location = new System.Drawing.Point(3, 321);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(655, 3);
+            this.splitter1.Size = new System.Drawing.Size(734, 3);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(7, 61);
+            this.button17.Margin = new System.Windows.Forms.Padding(4);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(273, 28);
+            this.button17.TabIndex = 6;
+            this.button17.Text = "Recupera elenco certificati firma utente";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // ComboSignCert
+            // 
+            this.ComboSignCert.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboSignCert.FormattingEnabled = true;
+            this.ComboSignCert.Location = new System.Drawing.Point(7, 96);
+            this.ComboSignCert.Name = "ComboSignCert";
+            this.ComboSignCert.Size = new System.Drawing.Size(273, 24);
+            this.ComboSignCert.TabIndex = 10;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(7, 127);
+            this.button18.Margin = new System.Windows.Forms.Padding(4);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(273, 28);
+            this.button18.TabIndex = 11;
+            this.button18.Text = "Esegui firma";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // FormArxivar
             // 
@@ -777,6 +814,9 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.ComboBox ComboSignCert;
+        private System.Windows.Forms.Button button18;
     }
 }
 

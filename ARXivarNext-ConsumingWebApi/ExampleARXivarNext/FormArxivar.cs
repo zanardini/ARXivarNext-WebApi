@@ -723,7 +723,7 @@ namespace ExampleARXivarNext
 
             viewsPermissionsApi.ViewsPermissionsWritePermissionByView(result.Id, dtoPermissions);
 
-            var idVista =  result.Id;
+            var idVista = result.Id;
             var url = "https://arxivar.abletech.it/ArxivarNextWebPortal/#!/view/" + idVista;
             //esempio https://arxivar.abletech.it/ArxivarNextWebPortal/#!/view/56a417a52e4f4d6a845e7eff5b1216fd
         }
@@ -776,7 +776,7 @@ namespace ExampleARXivarNext
                 if (fieldTipoProdotto != null)
                     (fieldTipoProdotto as IO.Swagger.Model.AdditionalFieldComboDTO).Value = "ARXivar NEXT";
 
-       
+
 
 
                 IO.Swagger.Model.SubjectFieldDTO subjectField = profileDto.Fields.FirstOrDefault(i => i is IO.Swagger.Model.SubjectFieldDTO) as IO.Swagger.Model.SubjectFieldDTO;
@@ -809,8 +809,6 @@ namespace ExampleARXivarNext
             try
             {
                 var signApi = new IO.Swagger.Api.SignApi(Configuration);
-                var documentApi = new IO.Swagger.Api.DocumentsApi(Configuration);
-                
                 if (ComboDocNumbers.SelectedItem == null)
                     throw new Exception("Selezionare il docnumber");
 
@@ -864,6 +862,55 @@ namespace ExampleARXivarNext
             catch (Exception ex)
             {
                 Table.DataSource = null;
+                _txtLog.Text = ex.Message;
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var signApi = new IO.Swagger.Api.SignApi(Configuration);
+                var signCertList = signApi.SignGetSignCertList();
+
+                Table.DataSource = signCertList;
+                ComboSignCert.DataSource = signCertList;
+                ComboSignCert.ValueMember = "Id";
+                ComboSignCert.DisplayMember = "CertDescription";
+
+            }
+            catch (Exception ex)
+            {
+                Table.DataSource = null;
+                _txtLog.Text = ex.Message;
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ComboDocNumbers.SelectedItem == null)
+                    throw new Exception("Selezionare il docnumber");
+                var docNumber = System.Convert.ToInt32(ComboDocNumbers.Text);
+                if (ComboSignCert.SelectedItem == null)
+                    throw new Exception("Selezionare il certificato di firma");
+
+                var signApi = new IO.Swagger.Api.SignApi(Configuration);
+
+                IO.Swagger.Model.SignCertDTO signCertDTO = ComboSignCert.SelectedItem as IO.Swagger.Model.SignCertDTO;
+                string password = "123456";
+                string otp = "123456";
+                List<IO.Swagger.Model.RemoteSignElementRequestDTO> signElementList = new List<IO.Swagger.Model.RemoteSignElementRequestDTO>();
+                signElementList.Add(new IO.Swagger.Model.RemoteSignElementRequestDTO(14, docNumber.ToString(), null, false, null));
+
+                IO.Swagger.Model.RemoteSignResponseDTO remoteSignResponseDTO = signApi.SignRemoteSign(new IO.Swagger.Model.RemoteSignRequestDTO(signCertDTO.Id, password, null, otp, signElementList));
+                string signRequestId = remoteSignResponseDTO.SignRequestId;
+
+
+            }
+            catch (Exception ex)
+            {
                 _txtLog.Text = ex.Message;
             }
         }
