@@ -804,5 +804,68 @@ namespace ExampleARXivarNext
             }
         }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var signApi = new IO.Swagger.Api.SignApi(Configuration);
+                var documentApi = new IO.Swagger.Api.DocumentsApi(Configuration);
+                
+                if (ComboDocNumbers.SelectedItem == null)
+                    throw new Exception("Selezionare il docnumber");
+
+                var docNumber = System.Convert.ToInt32(ComboDocNumbers.Text);
+
+                IO.Swagger.Model.VerifyInfoDTO verifyInfoDTO = signApi.SignGetVerifyInfo(new IO.Swagger.Model.VerifyInfoRequestDTO(docNumber, null, 14));
+                _txtLog.Text = "FileName = " + verifyInfoDTO.FileName;
+                foreach (var validationMessage in verifyInfoDTO.ValidationMessageList)
+                    _txtLog.Text += Environment.NewLine + "ValidationMessage = " + validationMessage.LevelEnum + " - " + validationMessage.Description;
+                foreach (var envelopeInfo in verifyInfoDTO.EnvelopeInfoList)
+                {
+                    _txtLog.Text += Environment.NewLine + "EnvelopeInfo = " + envelopeInfo.ToJson();
+                }
+            }
+            catch (Exception ex)
+            {
+                Table.DataSource = null;
+                _txtLog.Text = ex.Message;
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var searchApi = new IO.Swagger.Api.SearchesApi(Configuration);
+
+                var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
+                var docTypes = docTypesApi.DocumentTypesGet(1, "AbleBS");
+
+                var defaultSearch = searchApi.SearchesGet();
+                var defaultSelect = searchApi.SearchesGetSelect();
+
+                var values = searchApi.SearchesPostSearch(new IO.Swagger.Model.SearchCriteriaDto(defaultSearch, defaultSelect));
+                var profiles = new DataTable();
+
+                foreach (var columnSearchResult in values.First().Columns)
+                {
+                    profiles.Columns.Add(columnSearchResult.Id);
+                }
+
+                foreach (var rowSearchResult in values)
+                {
+                    profiles.Rows.Add(rowSearchResult.Columns.Select(i => i.Value).ToArray());
+                }
+                Table.DataSource = profiles;
+                ComboDocNumbers.DataSource = profiles;
+                ComboDocNumbers.ValueMember = "DOCNUMBER";
+                ComboDocNumbers.DisplayMember = "DOCNUMBER";
+            }
+            catch (Exception ex)
+            {
+                Table.DataSource = null;
+                _txtLog.Text = ex.Message;
+            }
+        }
     }
 }

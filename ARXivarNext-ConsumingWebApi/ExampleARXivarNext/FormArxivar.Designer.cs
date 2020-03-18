@@ -75,9 +75,13 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button15 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Table = new System.Windows.Forms.DataGridView();
             this._txtLog = new System.Windows.Forms.TextBox();
+            this.button16 = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -86,6 +90,7 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
@@ -225,6 +230,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Enabled = false;
             this.tabControl1.Location = new System.Drawing.Point(13, 172);
             this.tabControl1.Name = "tabControl1";
@@ -416,6 +422,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button16);
             this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Controls.Add(this.ComboDocNumbers);
@@ -476,7 +483,7 @@
             this.button2.Location = new System.Drawing.Point(8, 7);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(221, 28);
+            this.button2.Size = new System.Drawing.Size(154, 28);
             this.button2.TabIndex = 7;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
@@ -606,15 +613,39 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.button15);
+            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(436, 424);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Firma";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(8, 7);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(253, 28);
+            this.button15.TabIndex = 5;
+            this.button15.Text = "Verifica firma by docnumber";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.splitter1);
+            this.groupBox2.Controls.Add(this._txtLog);
             this.groupBox2.Controls.Add(this.Table);
             this.groupBox2.Location = new System.Drawing.Point(465, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(661, 365);
+            this.groupBox2.Size = new System.Drawing.Size(661, 454);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
@@ -626,20 +657,39 @@
             this.Table.Margin = new System.Windows.Forms.Padding(4);
             this.Table.Name = "Table";
             this.Table.RowHeadersWidth = 51;
-            this.Table.Size = new System.Drawing.Size(655, 344);
+            this.Table.Size = new System.Drawing.Size(655, 433);
             this.Table.TabIndex = 1;
             // 
             // _txtLog
             // 
-            this._txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtLog.Location = new System.Drawing.Point(468, 542);
+            this._txtLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this._txtLog.Location = new System.Drawing.Point(3, 368);
             this._txtLog.Multiline = true;
             this._txtLog.Name = "_txtLog";
             this._txtLog.ReadOnly = true;
             this._txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this._txtLog.Size = new System.Drawing.Size(658, 83);
+            this._txtLog.Size = new System.Drawing.Size(655, 83);
             this._txtLog.TabIndex = 5;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(170, 7);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(154, 28);
+            this.button16.TabIndex = 12;
+            this.button16.Text = "Search senza filtri";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter1.Location = new System.Drawing.Point(3, 365);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(655, 3);
+            this.splitter1.TabIndex = 6;
+            this.splitter1.TabStop = false;
             // 
             // FormArxivar
             // 
@@ -647,7 +697,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1138, 637);
-            this.Controls.Add(this._txtLog);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
@@ -664,10 +713,11 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -723,6 +773,10 @@
         private System.Windows.Forms.ComboBox ComboWf;
         private System.Windows.Forms.ComboBox ComboTasks;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }
 
