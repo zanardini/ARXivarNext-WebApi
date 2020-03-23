@@ -59,6 +59,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button16 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ComboDocNumbers = new System.Windows.Forms.ComboBox();
@@ -76,15 +77,14 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button18 = new System.Windows.Forms.Button();
+            this.ComboSignCert = new System.Windows.Forms.ComboBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Table = new System.Windows.Forms.DataGridView();
-            this._txtLog = new System.Windows.Forms.TextBox();
-            this.button16 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.button17 = new System.Windows.Forms.Button();
-            this.ComboSignCert = new System.Windows.Forms.ComboBox();
-            this.button18 = new System.Windows.Forms.Button();
+            this._txtLog = new System.Windows.Forms.TextBox();
+            this.Table = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -117,14 +117,14 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1112, 151);
+            this.groupBox1.Size = new System.Drawing.Size(1112, 113);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connessione Web Api";
             // 
             // _btnLogin
             // 
-            this._btnLogin.Location = new System.Drawing.Point(295, 109);
+            this._btnLogin.Location = new System.Drawing.Point(862, 74);
             this._btnLogin.Name = "_btnLogin";
             this._btnLogin.Size = new System.Drawing.Size(149, 31);
             this._btnLogin.TabIndex = 10;
@@ -235,10 +235,10 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Enabled = false;
-            this.tabControl1.Location = new System.Drawing.Point(13, 172);
+            this.tabControl1.Location = new System.Drawing.Point(13, 133);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(371, 453);
+            this.tabControl1.Size = new System.Drawing.Size(371, 489);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -249,7 +249,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(436, 424);
+            this.tabPage1.Size = new System.Drawing.Size(363, 421);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Anagrafiche";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(436, 424);
+            this.tabPage2.Size = new System.Drawing.Size(363, 421);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Archiviazione";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -367,7 +367,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(436, 424);
+            this.tabPage3.Size = new System.Drawing.Size(363, 421);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Address Book";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -434,19 +434,30 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(436, 424);
+            this.tabPage4.Size = new System.Drawing.Size(363, 460);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Ricerca";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(170, 7);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(154, 28);
+            this.button16.TabIndex = 12;
+            this.button16.Text = "Search senza filtri";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(8, 232);
+            this.button4.Location = new System.Drawing.Point(8, 189);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(221, 28);
             this.button4.TabIndex = 11;
-            this.button4.Text = "Gestione vista";
+            this.button4.Text = "Crea vista";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -500,7 +511,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(436, 424);
+            this.tabPage5.Size = new System.Drawing.Size(363, 421);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Import";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -549,7 +560,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(436, 424);
+            this.tabPage6.Size = new System.Drawing.Size(363, 421);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Workflow";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -625,10 +636,41 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(363, 424);
+            this.tabPage7.Size = new System.Drawing.Size(363, 421);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Firma";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(7, 127);
+            this.button18.Margin = new System.Windows.Forms.Padding(4);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(273, 28);
+            this.button18.TabIndex = 11;
+            this.button18.Text = "Esegui firma";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // ComboSignCert
+            // 
+            this.ComboSignCert.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboSignCert.FormattingEnabled = true;
+            this.ComboSignCert.Location = new System.Drawing.Point(7, 96);
+            this.ComboSignCert.Name = "ComboSignCert";
+            this.ComboSignCert.Size = new System.Drawing.Size(273, 24);
+            this.ComboSignCert.TabIndex = 10;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(7, 61);
+            this.button17.Margin = new System.Windows.Forms.Padding(4);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(273, 28);
+            this.button17.TabIndex = 6;
+            this.button17.Text = "Recupera elenco certificati firma utente";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button15
             // 
@@ -649,11 +691,31 @@
             this.groupBox2.Controls.Add(this.splitter1);
             this.groupBox2.Controls.Add(this._txtLog);
             this.groupBox2.Controls.Add(this.Table);
-            this.groupBox2.Location = new System.Drawing.Point(386, 171);
+            this.groupBox2.Location = new System.Drawing.Point(386, 133);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(740, 454);
+            this.groupBox2.Size = new System.Drawing.Size(740, 492);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter1.Location = new System.Drawing.Point(3, 359);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(734, 3);
+            this.splitter1.TabIndex = 6;
+            this.splitter1.TabStop = false;
+            // 
+            // _txtLog
+            // 
+            this._txtLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this._txtLog.Location = new System.Drawing.Point(3, 362);
+            this._txtLog.Multiline = true;
+            this._txtLog.Name = "_txtLog";
+            this._txtLog.ReadOnly = true;
+            this._txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this._txtLog.Size = new System.Drawing.Size(734, 127);
+            this._txtLog.TabIndex = 5;
             // 
             // Table
             // 
@@ -663,70 +725,8 @@
             this.Table.Margin = new System.Windows.Forms.Padding(4);
             this.Table.Name = "Table";
             this.Table.RowHeadersWidth = 51;
-            this.Table.Size = new System.Drawing.Size(734, 433);
+            this.Table.Size = new System.Drawing.Size(734, 471);
             this.Table.TabIndex = 1;
-            // 
-            // _txtLog
-            // 
-            this._txtLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._txtLog.Location = new System.Drawing.Point(3, 324);
-            this._txtLog.Multiline = true;
-            this._txtLog.Name = "_txtLog";
-            this._txtLog.ReadOnly = true;
-            this._txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this._txtLog.Size = new System.Drawing.Size(734, 127);
-            this._txtLog.TabIndex = 5;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(170, 7);
-            this.button16.Margin = new System.Windows.Forms.Padding(4);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(154, 28);
-            this.button16.TabIndex = 12;
-            this.button16.Text = "Search senza filtri";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // splitter1
-            // 
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(3, 321);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(734, 3);
-            this.splitter1.TabIndex = 6;
-            this.splitter1.TabStop = false;
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(7, 61);
-            this.button17.Margin = new System.Windows.Forms.Padding(4);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(273, 28);
-            this.button17.TabIndex = 6;
-            this.button17.Text = "Recupera elenco certificati firma utente";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // ComboSignCert
-            // 
-            this.ComboSignCert.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboSignCert.FormattingEnabled = true;
-            this.ComboSignCert.Location = new System.Drawing.Point(7, 96);
-            this.ComboSignCert.Name = "ComboSignCert";
-            this.ComboSignCert.Size = new System.Drawing.Size(273, 24);
-            this.ComboSignCert.TabIndex = 10;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(7, 127);
-            this.button18.Margin = new System.Windows.Forms.Padding(4);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(273, 28);
-            this.button18.TabIndex = 11;
-            this.button18.Text = "Esegui firma";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // FormArxivar
             // 

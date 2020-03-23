@@ -69,8 +69,6 @@ namespace ExampleARXivarNext
             }
         }
 
-
-
         private void BtnListAoo_Click(object sender, EventArgs e)
         {
             try
@@ -710,7 +708,6 @@ namespace ExampleARXivarNext
             dto.ShowGroupsMode = 0;
 
             var result = viewsBuilderApi.ViewsBuilderEditView(dto);
-
 
             var viewsPermissionsApi = new IO.Swagger.Api.ViewsPermissionsApi(Configuration);
             var dtoPermissions = viewsPermissionsApi.ViewsPermissionsGetPermissionByView(result.Id);
