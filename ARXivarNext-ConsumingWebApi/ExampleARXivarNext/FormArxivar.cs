@@ -62,6 +62,17 @@ namespace ExampleARXivarNext
                 _txtLog.Text = "AuthToken: " + _authToken;
                 tabControl1.Enabled = true;
 
+                                _txtLog.Text += Environment.NewLine;
+                
+                IO.Swagger.Api.LicenseApi licenseApi = new IO.Swagger.Api.LicenseApi(Configuration);
+                var licenseIsLoaded = licenseApi.LicenseLicenseIsLoaded();
+                _txtLog.Text += Environment.NewLine + "License Is Loaded" + licenseIsLoaded;
+
+                IO.Swagger.Model.ServerLicense loadedLicense = licenseApi.LicenseGetLoadedlicense();
+                _txtLog.Text += Environment.NewLine + "License Issuer: " + loadedLicense.Issuer;
+                _txtLog.Text += Environment.NewLine + "License Type: " + loadedLicense.Purpose;
+                _txtLog.Text += Environment.NewLine + "ActivationCode: " + loadedLicense.ActivationCode;
+                _txtLog.Text += Environment.NewLine + "Note: " + loadedLicense.Note;
             }
             catch (Exception ex)
             {
