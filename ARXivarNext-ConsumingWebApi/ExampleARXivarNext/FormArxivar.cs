@@ -928,7 +928,7 @@ namespace ExampleARXivarNext
                 var authApi = new IO.Swagger.Api.AuthenticationApi(Configuration);
                 var ticket = authApi.AuthenticationInsertLogonTicket(new IO.Swagger.Model.LogonTicketRequestDto(2, "", 1, null, _txtClientId.Text, _txtClientSecret.Text, null, null, null));
 
-                _txtLog.Text = "Ottenuto un logo token per l'utente 2 valido one shot, Token: " + ticket.LogonTicket;
+                _txtLog.Text = "Ottenuto un logon token per l'utente 2 valido one shot, Token: " + ticket.LogonTicket;
 
                 var url = "http://localhost/ARXivarNextWebPortal/Account/LogonTicket/" + ticket.LogonTicket;
                 _txtLogonToken.Text = url;
@@ -947,7 +947,7 @@ namespace ExampleARXivarNext
                 var authApi = new IO.Swagger.Api.AuthenticationApi(Configuration);
                 var ticket = authApi.AuthenticationInsertLogonTicket(new IO.Swagger.Model.LogonTicketRequestDto(2, "", null, DateTime.Now.AddDays(10), _txtClientId.Text, _txtClientSecret.Text, null, null, null));
 
-                _txtLog.Text = "Ottenuto un logo token per l'utente 2 valido per 10 giorni, Token: " + ticket.LogonTicket;
+                _txtLog.Text = "Ottenuto un logon token per l'utente 2 valido per 10 giorni, Token: " + ticket.LogonTicket;
 
                 var url = "http://localhost/ARXivarNextWebPortal/Account/LogonTicket/" + ticket.LogonTicket;
                 _txtLogonToken.Text = url;
