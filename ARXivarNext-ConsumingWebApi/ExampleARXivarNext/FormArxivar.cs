@@ -1,12 +1,8 @@
 ﻿using IO.Swagger.Client;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExampleARXivarNext
@@ -62,8 +58,8 @@ namespace ExampleARXivarNext
                 _txtLog.Text = "AuthToken: " + _authToken;
                 tabControl1.Enabled = true;
 
-                                _txtLog.Text += Environment.NewLine;
-                
+                _txtLog.Text += Environment.NewLine;
+
                 IO.Swagger.Api.LicenseApi licenseApi = new IO.Swagger.Api.LicenseApi(Configuration);
                 var licenseIsLoaded = licenseApi.LicenseLicenseIsLoaded();
                 _txtLog.Text += Environment.NewLine + "License Is Loaded" + licenseIsLoaded;
@@ -732,8 +728,8 @@ namespace ExampleARXivarNext
             viewsPermissionsApi.ViewsPermissionsWritePermissionByView(result.Id, dtoPermissions);
 
             var idVista = result.Id;
-            var url = "https://arxivar.abletech.it/ArxivarNextWebPortal/#!/view/" + idVista;
-            //esempio https://arxivar.abletech.it/ArxivarNextWebPortal/#!/view/56a417a52e4f4d6a845e7eff5b1216fd
+            var url = "https://localhost/ArxivarNextWebPortal/#!/view/" + idVista;
+            //esempio https://localhost/ArxivarNextWebPortal/#!/view/56a417a52e4f4d6a845e7eff5b1216fd
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -918,6 +914,44 @@ namespace ExampleARXivarNext
                 IO.Swagger.Api.QueueApi queueApi = new IO.Swagger.Api.QueueApi(Configuration);
                 IO.Swagger.Model.QueueAggregationStatusInfoDto queueAggregationStatusInfoDto = queueApi.QueueGetQueueAggregationStatusInfo(signRequestId);
                 var status = queueAggregationStatusInfoDto.QueueStatus;
+            }
+            catch (Exception ex)
+            {
+                _txtLog.Text = ex.Message;
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var authApi = new IO.Swagger.Api.AuthenticationApi(Configuration);
+                var ticket = authApi.AuthenticationInsertLogonTicket(new IO.Swagger.Model.LogonTicketRequestDto(2, "", 1, null, _txtClientId.Text, _txtClientSecret.Text, null, null, null));
+
+                _txtLog.Text = "Ottenuto un logo token per l'utente 2 valido one shot, Token: " + ticket.LogonTicket;
+
+                var url = "http://localhost/ARXivarNextWebPortal/Account/LogonTicket/" + ticket.LogonTicket;
+                _txtLogonToken.Text = url;
+                //_txtLogonToken.Text = url + "?lang=EN&ReturnUrl=%2FARXivarNextWebPortal%2F#!/tasklistrepeater?showTask=1";
+            }
+            catch (Exception ex)
+            {
+                _txtLog.Text = ex.Message;
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var authApi = new IO.Swagger.Api.AuthenticationApi(Configuration);
+                var ticket = authApi.AuthenticationInsertLogonTicket(new IO.Swagger.Model.LogonTicketRequestDto(2, "", null, DateTime.Now.AddDays(10), _txtClientId.Text, _txtClientSecret.Text, null, null, null));
+
+                _txtLog.Text = "Ottenuto un logo token per l'utente 2 valido per 10 giorni, Token: " + ticket.LogonTicket;
+
+                var url = "http://localhost/ARXivarNextWebPortal/Account/LogonTicket/" + ticket.LogonTicket;
+                _txtLogonToken.Text = url;
+                //_txtLogonToken.Text = url + "?lang=EN&ReturnUrl=%2FARXivarNextWebPortal%2F#!/tasklistrepeater?showTask=1";
             }
             catch (Exception ex)
             {

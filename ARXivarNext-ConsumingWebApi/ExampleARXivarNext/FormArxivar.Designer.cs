@@ -85,6 +85,10 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this._txtLog = new System.Windows.Forms.TextBox();
             this.Table = new System.Windows.Forms.DataGridView();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this._txtLogonToken = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -96,6 +100,7 @@
             this.tabPage7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -234,6 +239,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Enabled = false;
             this.tabControl1.Location = new System.Drawing.Point(13, 133);
             this.tabControl1.Name = "tabControl1";
@@ -249,7 +255,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(363, 421);
+            this.tabPage1.Size = new System.Drawing.Size(363, 460);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Anagrafiche";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -294,7 +300,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(363, 421);
+            this.tabPage2.Size = new System.Drawing.Size(363, 460);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Archiviazione";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -367,7 +373,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(363, 421);
+            this.tabPage3.Size = new System.Drawing.Size(363, 460);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Address Book";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -511,7 +517,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(363, 421);
+            this.tabPage5.Size = new System.Drawing.Size(363, 460);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Import";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -560,7 +566,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(363, 421);
+            this.tabPage6.Size = new System.Drawing.Size(363, 460);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Workflow";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -636,7 +642,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(363, 421);
+            this.tabPage7.Size = new System.Drawing.Size(363, 460);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Firma";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -728,6 +734,51 @@
             this.Table.Size = new System.Drawing.Size(734, 471);
             this.Table.TabIndex = 1;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this._txtLogonToken);
+            this.tabPage8.Controls.Add(this.button20);
+            this.tabPage8.Controls.Add(this.button19);
+            this.tabPage8.Location = new System.Drawing.Point(4, 25);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(363, 460);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Logon ticket";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(7, 7);
+            this.button19.Margin = new System.Windows.Forms.Padding(4);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(273, 28);
+            this.button19.TabIndex = 6;
+            this.button19.Text = "Logon token - One shot";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(8, 43);
+            this.button20.Margin = new System.Windows.Forms.Padding(4);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(273, 28);
+            this.button20.TabIndex = 7;
+            this.button20.Text = "Logon token - 10 minuti";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // _txtLogonToken
+            // 
+            this._txtLogonToken.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._txtLogonToken.Location = new System.Drawing.Point(8, 79);
+            this._txtLogonToken.Name = "_txtLogonToken";
+            this._txtLogonToken.ReadOnly = true;
+            this._txtLogonToken.Size = new System.Drawing.Size(349, 22);
+            this._txtLogonToken.TabIndex = 8;
+            // 
             // FormArxivar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -754,6 +805,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -817,6 +870,10 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.ComboBox ComboSignCert;
         private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TextBox _txtLogonToken;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button19;
     }
 }
 
