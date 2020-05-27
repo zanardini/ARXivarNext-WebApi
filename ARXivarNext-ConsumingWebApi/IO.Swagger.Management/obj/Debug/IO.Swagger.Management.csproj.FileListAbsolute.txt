@@ -1,0 +1,12 @@
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\IO.Swagger.Management.dll
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\IO.Swagger.Management.pdb
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\JsonSubTypes.dll
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\Newtonsoft.Json.dll
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\RestSharp.dll
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\Newtonsoft.Json.xml
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\bin\Debug\RestSharp.xml
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\obj\Debug\IO.Swagger.Management.csproj.CoreCompileInputs.cache
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\obj\Debug\IO.Swagger.Management.csproj.CopyComplete
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\obj\Debug\IO.Swagger.Management.dll
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\obj\Debug\IO.Swagger.Management.pdb
+C:\Ziggy.Git\ARXivarNext-WebApi\ARXivarNext-ConsumingWebApi\IO.Swagger.Management\obj\Debug\IO.Swagger.Management.csprojAssemblyReference.cache

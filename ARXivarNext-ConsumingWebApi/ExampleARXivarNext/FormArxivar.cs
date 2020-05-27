@@ -63,7 +63,7 @@ namespace ExampleARXivarNext
                 IO.Swagger.Api.LicenseApi licenseApi = new IO.Swagger.Api.LicenseApi(Configuration);
                 var licenseIsLoaded = licenseApi.LicenseLicenseIsLoaded();
                 _txtLog.Text += Environment.NewLine + "License Is Loaded" + licenseIsLoaded;
-
+                
                 IO.Swagger.Model.ServerLicense loadedLicense = licenseApi.LicenseGetLoadedlicense();
                 _txtLog.Text += Environment.NewLine + "License Issuer: " + loadedLicense.Issuer;
                 _txtLog.Text += Environment.NewLine + "License Type: " + loadedLicense.Purpose;
@@ -730,6 +730,10 @@ namespace ExampleARXivarNext
             var idVista = result.Id;
             var url = "https://localhost/ArxivarNextWebPortal/#!/view/" + idVista;
             //esempio https://localhost/ArxivarNextWebPortal/#!/view/56a417a52e4f4d6a845e7eff5b1216fd
+
+            //cancello la vista
+            var viewApi = new IO.Swagger.Api.ViewsApi(Configuration);
+            viewApi.ViewsDeleteView(idVista);
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -780,6 +784,7 @@ namespace ExampleARXivarNext
                 if (fieldTipoProdotto != null)
                     (fieldTipoProdotto as IO.Swagger.Model.AdditionalFieldComboDTO).Value = "ARXivar NEXT";
 
+                
 
 
 

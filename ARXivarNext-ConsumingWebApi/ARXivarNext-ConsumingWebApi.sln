@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.Swagger", "IO.Swagger\IO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleARXivarNext", "ExampleARXivarNext\ExampleARXivarNext.csproj", "{CF1402ED-10A4-4647-A348-B09ECB9FBCE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.Swagger.Management", "IO.Swagger.Management\IO.Swagger.Management.csproj", "{EC16B38E-A501-447B-970D-B4A28D060CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CF1402ED-10A4-4647-A348-B09ECB9FBCE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF1402ED-10A4-4647-A348-B09ECB9FBCE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF1402ED-10A4-4647-A348-B09ECB9FBCE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC16B38E-A501-447B-970D-B4A28D060CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC16B38E-A501-447B-970D-B4A28D060CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC16B38E-A501-447B-970D-B4A28D060CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC16B38E-A501-447B-970D-B4A28D060CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
