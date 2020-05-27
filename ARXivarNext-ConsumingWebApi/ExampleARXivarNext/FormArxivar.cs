@@ -1,5 +1,4 @@
-﻿using IO.Swagger.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,7 +15,7 @@ namespace ExampleARXivarNext
         {
             get
             {
-                return new Configuration()
+                return new IO.Swagger.Client.Configuration()
                 {
                     BasePath = _txtUrl.Text,
                     ApiKey = new Dictionary<string, string>() { { "Authorization", _authToken } },
@@ -664,6 +663,9 @@ namespace ExampleARXivarNext
             var classeDocSelectField = dto.SelectFields.Fields.FirstOrDefault(x => x != null && (!string.IsNullOrEmpty(x.Name)) && x.Name.Equals("CLASSEDOC", StringComparison.CurrentCultureIgnoreCase));
             if (classeDocSelectField != null)
                 classeDocSelectField.Selected = true;
+
+            //IO.Swagger.Management.Api.
+
 
             //var aggiuntivoSelectField = dto.SelectFields.Fields.FirstOrDefault(x => x != null && (!string.IsNullOrEmpty(x.ExternalId)) && x.ExternalId.Equals("TECNICOSLTIPOLOGIA", StringComparison.CurrentCultureIgnoreCase));
             var aggiuntivoSelectField = dto.SelectFields.Fields.FirstOrDefault(x => x != null && (!string.IsNullOrEmpty(x.Name)) && x.Name.Equals("COMBO36_31", StringComparison.CurrentCultureIgnoreCase));
