@@ -42,29 +42,24 @@ namespace ExampleBackOfficeService.Controllers
         {
             try
             {
-                var bearerValue = Request.Headers["Authorization"];
-                var basePath = _configuration.GetValue<string>("AppSettings:ARXivarNextWebApiUrl");
-
-                var restConfiguration = new IO.Swagger.Client.Configuration()
+                var arxivarRestConfiguration = new IO.Swagger.Client.Configuration()
                 {
-                    BasePath = basePath,
-                    ApiKey = new Dictionary<string, string>() { { "Authorization", bearerValue } },
+                    BasePath = _configuration.GetValue<string>("AppSettings:ARXivarNextWebApiUrl"),
+                    ApiKey = new Dictionary<string, string>() { { "Authorization", Request.Headers["Authorization"] } },
                     ApiKeyPrefix = new Dictionary<string, string>() { { "Authorization", "" } }
                 };
-               
-                IO.Swagger.Api.UsersApi usersApi = new IO.Swagger.Api.UsersApi(restConfiguration);
 
-                var userApi = new IO.Swagger.Api.UsersApi(restConfiguration);
-                var userInfo = userApi.UsersGetUserInfo();
+                var usersApi = new IO.Swagger.Api.UsersApi(arxivarRestConfiguration);
+                
+                var userInfo = usersApi.UsersGetUserInfo();
                 var userInfo_CompleteDescription = userInfo.CompleteDescription;
                 var userInfo_CompleteName = userInfo.CompleteName;
                 var userInfo_UserId = userInfo.User;
 
-                                ClaimsIdentity claims = (this.User.Identity as ClaimsIdentity);
-                string idUtenteStringa = claims.FindFirst("arx:user_id").Value;
-                int idUtenteNumero = System.Convert.ToInt32(idUtenteStringa); 
-                IO.Swagger.Model.UserInfoDTO userInfoDTO = usersApi.UsersGet(idUtenteNumero);
-
+                ClaimsIdentity claims = (this.User.Identity as ClaimsIdentity);
+                string userIdString = claims.FindFirst("arx:user_id").Value;
+                int userIdNumber = System.Convert.ToInt32(userIdString);
+                IO.Swagger.Model.UserInfoDTO userInfoDTO = usersApi.UsersGet(userIdNumber);
 
                 EngineResult model;
                 if (_cache.TryGetValue(id, out model))
