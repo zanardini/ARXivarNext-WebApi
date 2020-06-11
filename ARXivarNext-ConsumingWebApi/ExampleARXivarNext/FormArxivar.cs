@@ -1,7 +1,10 @@
-﻿using System;
+﻿using IO.Swagger.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Web;
 using System.Windows.Forms;
 
 namespace ExampleARXivarNext
@@ -59,10 +62,17 @@ namespace ExampleARXivarNext
 
                 _txtLog.Text += Environment.NewLine;
 
+                var userApi = new IO.Swagger.Api.UsersApi(Configuration);
+                var userInfo = userApi.UsersGetUserInfo();
+                _txtLog.Text += Environment.NewLine + "UserDescription: " + userInfo.CompleteDescription;
+                _txtLog.Text += Environment.NewLine + "UserName: " + userInfo.CompleteName;
+                _txtLog.Text += Environment.NewLine + "UserId: " + userInfo.User;
+                _txtLog.Text += Environment.NewLine;
+
                 IO.Swagger.Api.LicenseApi licenseApi = new IO.Swagger.Api.LicenseApi(Configuration);
                 var licenseIsLoaded = licenseApi.LicenseLicenseIsLoaded();
                 _txtLog.Text += Environment.NewLine + "License Is Loaded" + licenseIsLoaded;
-                
+
                 IO.Swagger.Model.ServerLicense loadedLicense = licenseApi.LicenseGetLoadedlicense();
                 _txtLog.Text += Environment.NewLine + "License Issuer: " + loadedLicense.Issuer;
                 _txtLog.Text += Environment.NewLine + "License Type: " + loadedLicense.Purpose;
@@ -786,7 +796,7 @@ namespace ExampleARXivarNext
                 if (fieldTipoProdotto != null)
                     (fieldTipoProdotto as IO.Swagger.Model.AdditionalFieldComboDTO).Value = "ARXivar NEXT";
 
-                
+
 
 
 
@@ -959,6 +969,88 @@ namespace ExampleARXivarNext
                 var url = "http://localhost/ARXivarNextWebPortal/Account/LogonTicket/" + ticket.LogonTicket;
                 _txtLogonToken.Text = url;
                 //_txtLogonToken.Text = url + "?lang=EN&ReturnUrl=%2FARXivarNextWebPortal%2F#!/tasklistrepeater?showTask=1";
+            }
+            catch (Exception ex)
+            {
+                _txtLog.Text = ex.Message;
+            }
+        }
+
+        private void _btnLoginWindows_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var authApi = new IO.Swagger.Api.AuthenticationApi(_txtUrl.Text);
+
+                var logonProviderList = authApi.AuthenticationGetLogonProviderInfoList();
+                var logonproviderWindows = logonProviderList.FirstOrDefault(x => x.LogonProviderId.Equals("0978F3606CD74CF292E9306BF58A6998"));
+
+                AuthenticationTokenImplicitRequestDTO authenticationTokenImplicitRequestDto = new AuthenticationTokenImplicitRequestDTO(
+                    _txtClientId.Text, //Client ID
+                    _txtClientSecret.Text, // Client SECRET
+                    logonproviderWindows.LogonProviderId, // Logon Provider ID
+                    null, // Impersonate User ID
+                    null, // impersonate External ID
+                    "1.0.0.0", // CLIENT VERSION
+                    "MyMachineKey", // MACHINE KEY
+                    "IT", // CULTURE
+                    "https://www.google.com", //Success redirect uri
+                    new List<string>(), // SCOPE LIST
+                    null //IP ADDRESS
+                    );
+
+                var resultToken = authApi.AuthenticationGetWindowsLogonRedirectUri(authenticationTokenImplicitRequestDto);
+
+                if (resultToken.Error != null && !string.IsNullOrEmpty(resultToken.Error))
+                    throw new Exception(string.Format("Error code [{0}] - {1}", resultToken.Error, resultToken.ErrorDescription));
+
+                // Eseguo redirect per ottenere il token
+                var requestLog = (HttpWebRequest)WebRequest.Create(resultToken.RedirectUri);
+                requestLog.UseDefaultCredentials = true;
+                using (var responseLog = (HttpWebResponse)requestLog.GetResponse())
+                {
+                    var responseFragment = responseLog.ResponseUri.Fragment;
+                    if (string.IsNullOrEmpty(responseFragment))
+                    {
+                        // Provo a cercare la causa dell'errore
+                        var queryParser = HttpUtility.ParseQueryString(responseLog.ResponseUri.Query);
+                        var errorMessage = queryParser["errorMessage"] ?? "Redirect error: " + responseLog.ResponseUri;
+                        throw new Exception(errorMessage);
+                    }
+
+                    var fragment = responseLog.ResponseUri.Fragment.Remove(0, 1);
+                    var urlParameters = HttpUtility.ParseQueryString(fragment);
+
+                    // extract the access token from the url.
+                    _authToken = urlParameters["access_token"];
+                }
+
+                _refreshToken = "";
+                _txtLog.Text = "AuthToken: " + _authToken;
+                tabControl1.Enabled = true;
+
+                _txtLog.Text += Environment.NewLine;
+
+                var userApi = new IO.Swagger.Api.UsersApi(Configuration);
+                var userInfo = userApi.UsersGetUserInfo();
+                _txtLog.Text += Environment.NewLine + "UserDescription: " + userInfo.CompleteDescription;
+                _txtLog.Text += Environment.NewLine + "UserName: " + userInfo.CompleteName;
+                _txtLog.Text += Environment.NewLine + "UserId: " + userInfo.User;
+                _txtLog.Text += Environment.NewLine;
+
+                IO.Swagger.Api.LicenseApi licenseApi = new IO.Swagger.Api.LicenseApi(Configuration);
+                var licenseIsLoaded = licenseApi.LicenseLicenseIsLoaded();
+                _txtLog.Text += Environment.NewLine + "License Is Loaded" + licenseIsLoaded;
+
+                IO.Swagger.Model.ServerLicense loadedLicense = licenseApi.LicenseGetLoadedlicense();
+                _txtLog.Text += Environment.NewLine + "License Issuer: " + loadedLicense.Issuer;
+                _txtLog.Text += Environment.NewLine + "License Type: " + loadedLicense.Purpose;
+                _txtLog.Text += Environment.NewLine + "ActivationCode: " + loadedLicense.ActivationCode;
+                _txtLog.Text += Environment.NewLine + "Note: " + loadedLicense.Note;
+
+
+                
+
             }
             catch (Exception ex)
             {
