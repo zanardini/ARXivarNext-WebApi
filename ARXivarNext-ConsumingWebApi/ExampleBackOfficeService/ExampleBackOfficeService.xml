@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExampleBackOfficeService</name>
+    </assembly>
+    <members>
+        <member name="M:ExampleBackOfficeService.Controllers.TestController.Get(System.String)">
+            <summary>
+            Calculate simulation
+            </summary>
+            <param name="id">Key ID</param>
+            <returns></returns>
+        </member>
+        <member name="P:ExampleBackOfficeService.Models.EngineResult.ValueA">
+            <summary>
+            Value A
+            </summary>
+        </member>
+        <member name="P:ExampleBackOfficeService.Models.EngineResult.ValueB">
+            <summary>
+            Value B
+            </summary>
+        </member>
+        <member name="T:ExampleBackOfficeService.SwaggerConfig">
+            <summary>
+            Raggruppamento delle personalizzazioni relative a swagger
+            </summary>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.AddSecurityConfiguration(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Aggiunge la parte relativa alla security delle API
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.DisableAdditionalProperties(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Creato per sopperire ad un problema di swagger codegen >= 2.3.0
+            che genera la classe problem Details in modo errato
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.AddXmlDocumentation(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Aggiunta della documentazione XML
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.AddApiCounters(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Aggiunge alle API la parte finale di counters
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.SortSchemas(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Sort schema in the documentations
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.AddEnumDocumentation(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Aggiunge a swagger la documentazione relativa agli enumerativi
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ExampleBackOfficeService.SwaggerConfig.AddPolymorphism(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions,System.Reflection.Assembly[])">
+            <summary>
+            Aggiunge la parte di informazioni polimorfiche
+            </summary>
+        </member>
+        <member name="F:ExampleBackOfficeService.Utilities.SwaggerExtensions.DescriptionSources.DescriptionAttributes">
+            <summary>
+            <see cref="T:System.ComponentModel.DescriptionAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:ExampleBackOfficeService.Utilities.SwaggerExtensions.DescriptionSources.XmlComments">
+            <summary>
+            Xml comments.
+            </summary>
+        </member>
+        <member name="F:ExampleBackOfficeService.Utilities.SwaggerExtensions.DescriptionSources.DescriptionAttributesThenXmlComments">
+            <summary>
+            <see cref="T:System.ComponentModel.DescriptionAttribute"/> then xml comments.
+            </summary>
+        </member>
+        <member name="M:ExampleBackOfficeService.Utilities.SwaggerExtensions.DisplayEnumsWithValuesDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Apply the filter.
+            </summary>
+            <param name="openApiDoc"><see cref="T:Microsoft.OpenApi.Models.OpenApiDocument"/>.</param>
+            <param name="context"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext"/>.</param>
+        </member>
+        <member name="T:ExampleBackOfficeService.Utilities.SwaggerExtensions.RemoveEnumsDocumentFilter">
+            <summary>
+            Remove enums from any schema definition or reference
+            The enum become an int32
+            </summary>
+        </member>
+        <member name="M:ExampleBackOfficeService.Utilities.SwaggerExtensions.RemoveEnumsDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Apply the filter.
+            </summary>
+            <param name="openApiDoc"><see cref="T:Microsoft.OpenApi.Models.OpenApiDocument"/>.</param>
+            <param name="context"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext"/>.</param>
+        </member>
+        <member name="T:ExampleBackOfficeService.Utilities.SwaggerExtensions.SortSchemasDocumentFilter">
+            <summary>
+            Sort schema document filter
+            </summary>
+        </member>
+        <member name="M:ExampleBackOfficeService.Utilities.SwaggerExtensions.SortSchemasDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Try to sort the data definitions that appear in the "Schemas" section of the Swagger page.
+            This is an ugly way to do it.
+            </summary>
+            <param name="openApiDoc">The swagger document</param>
+            <param name="context">The filter context</param>
+        </member>
+    </members>
+</doc>
