@@ -23,13 +23,15 @@ namespace ExampleBackOfficeService.Controllers
 
         private readonly IConfiguration _configuration;
         private readonly IEngineCalculator _engineCalculator;
+        private readonly IAppSettingsService _appSettingsService;
 
-        public TestController(IEngineInfoService engineInfoService, IEngineCalculator engineCalculator, IMemoryCache memoryCache, IConfiguration configuration)
+        public TestController(IEngineInfoService engineInfoService, IEngineCalculator engineCalculator, IMemoryCache memoryCache, IConfiguration configuration, IAppSettingsService appSettingsService)
         {
             _cache = memoryCache;
             _configuration = configuration;
             _engineInfoService = engineInfoService;
             _engineCalculator = engineCalculator;
+            _appSettingsService = appSettingsService;
         }
 
         /// <summary>
@@ -44,7 +46,7 @@ namespace ExampleBackOfficeService.Controllers
             {
                 var arxivarRestConfiguration = new IO.Swagger.Client.Configuration()
                 {
-                    BasePath = _configuration.GetValue<string>("AppSettings:ARXivarNextWebApiUrl"),
+                    BasePath = _appSettingsService.ARXivarNextWebApiUrl,
                     ApiKey = new Dictionary<string, string>() { { "Authorization", Request.Headers["Authorization"] } },
                     ApiKeyPrefix = new Dictionary<string, string>() { { "Authorization", "" } }
                 };
@@ -80,8 +82,7 @@ namespace ExampleBackOfficeService.Controllers
 
                 model = _engineCalculator.Calculate(id, engineInfo);
 
-                var cacheMin = _configuration.GetValue<int>("AppSettings:CacheMin");
-                _cache.Set(id, model, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(cacheMin)));
+                _cache.Set(id, model, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(_appSettingsService.CacheMin)));
 
                 return model;
             }

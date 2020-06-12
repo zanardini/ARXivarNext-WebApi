@@ -26,6 +26,7 @@ namespace ExampleBackOfficeService
         }
 
         public IConfiguration Configuration { get; }
+        private IAppSettingsService _appSettingsService;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -37,6 +38,10 @@ namespace ExampleBackOfficeService
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
 
+            //App Settings application 
+            _appSettingsService = new AppSettingsService(Configuration);            
+            services.AddSingleton<IAppSettingsService>(_appSettingsService);
+
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
               .AddIdentityServerAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme,
                   jwtOptions =>
@@ -45,10 +50,10 @@ namespace ExampleBackOfficeService
                       jwtOptions.RequireHttpsMetadata = true;
                   }, referenceOptions =>
                   {
-                      referenceOptions.Authority = Configuration.GetValue<string>("AppSettings:ARXivarNextAuthenticationUrl");
+                      referenceOptions.Authority = _appSettingsService.ARXivarNextAuthenticationUrl;
                       referenceOptions.IntrospectionEndpoint = referenceOptions.Authority.ConcatUrls("api/auth/introspect");
-                      referenceOptions.ClientId = Configuration.GetValue<string>("AppSettings:ClientId");
-                      referenceOptions.ClientSecret = Configuration.GetValue<string>("AppSettings:ClientSecret");
+                      referenceOptions.ClientId = _appSettingsService.ARXivarNextClientId;
+                      referenceOptions.ClientSecret = _appSettingsService.ARXivarNextClientSecret;
 
                       // Todo: cache da abilitare
                       referenceOptions.EnableCaching = true;
@@ -68,6 +73,8 @@ namespace ExampleBackOfficeService
 
             //singleton -- services.AddSingleton<IArxivarService>(new ArxivarService());
             //services.AddScoped<IArxivarService, ArxivarService>();
+
+         
 
             services.AddControllers().AddJsonOptions(options =>
             {
@@ -128,9 +135,11 @@ namespace ExampleBackOfficeService
 
             app.UseSwagger();
 
+            IAppSettingsService appSettingsService = new AppSettingsService(Configuration);
+
             app.UseSwaggerUI(c =>
             {
-                var swaggerUIPage = configuration.GetValue<string>("AppSettings:SwaggerUIPage");
+                var swaggerUIPage = _appSettingsService.SwaggerUIPage;
                 c.SwaggerEndpoint(swaggerUIPage, "Test Engine Service Api V1");
                 c.RoutePrefix = string.Empty;
 
