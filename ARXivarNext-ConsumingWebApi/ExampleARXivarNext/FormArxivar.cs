@@ -119,7 +119,7 @@ namespace ExampleARXivarNext
                 var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
                 //Get DocumentTypes list
 
-                var docTypes = docTypesApi.DocumentTypesGet(1, aooCode);
+                var docTypes = docTypesApi.DocumentTypesGetOld(1, aooCode);
                 //Bind to the grid
                 Table.DataSource = docTypes;
             }
@@ -317,7 +317,7 @@ namespace ExampleARXivarNext
                 var searchApi = new IO.Swagger.Api.SearchesApi(Configuration);
 
                 var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
-                var docTypes = docTypesApi.DocumentTypesGet(1, "AbleBS");
+                var docTypes = docTypesApi.DocumentTypesGetOld(1, "AbleBS");
                 var classeFatture = docTypes.FirstOrDefault(i => i.Key == "AMM.FATTACQ");
 
                 var defaultSearch = searchApi.SearchesGet();
@@ -399,7 +399,7 @@ namespace ExampleARXivarNext
                 var searchV2Api = new IO.Swagger.Api.SearchesV2Api(Configuration);
 
                 var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
-                var docTypes = docTypesApi.DocumentTypesGet(1, "AbleBS");
+                var docTypes = docTypesApi.DocumentTypesGetOld(1, "AbleBS");
                 var classeFatture = docTypes.FirstOrDefault(i => i.Key == "AMM.FATTACQ");
                 var classeBolle = docTypes.FirstOrDefault(i => i.Key == "AMM.BOL");
 
@@ -473,7 +473,7 @@ namespace ExampleARXivarNext
                 var aoo = aooApi.BusinessUnitsGet();
 
                 var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
-                var doctypes = docTypesApi.DocumentTypesGet(1, aoo.First().Code);
+                var doctypes = docTypesApi.DocumentTypesGetOld(1, aoo.First().Code);
 
                 var openFileDialog = new OpenFileDialog();
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -755,7 +755,7 @@ namespace ExampleARXivarNext
             var profileApi = new IO.Swagger.Api.ProfilesApi(Configuration);
 
             var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
-            var doctypes = docTypesApi.DocumentTypesGet(0, "ABLETECH");
+            var doctypes = docTypesApi.DocumentTypesGetOld(0, "ABLETECH");
 
             using (System.IO.FileStream stream = System.IO.File.Open(@"c:\temp\1.pdf", System.IO.FileMode.Open))
             {
@@ -858,7 +858,7 @@ namespace ExampleARXivarNext
                 var searchApi = new IO.Swagger.Api.SearchesApi(Configuration);
 
                 var docTypesApi = new IO.Swagger.Api.DocumentTypesApi(Configuration);
-                var docTypes = docTypesApi.DocumentTypesGet(1, "AbleBS");
+                var docTypes = docTypesApi.DocumentTypesGetOld(1, "AbleBS");
 
                 var defaultSearch = searchApi.SearchesGet();
                 var defaultSelect = searchApi.SearchesGetSelect();

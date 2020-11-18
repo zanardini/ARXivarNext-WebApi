@@ -27,7 +27,6 @@ namespace IO.Swagger.Model
     /// <summary>
     /// ServerLicense
     /// </summary>
-    
     [DataContract]
     public partial class ServerLicense :  IEquatable<ServerLicense>, IValidatableObject
     {
