@@ -34,11 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Abletech.WebApi.Client.Arxivar.NetFx, Version=2.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ARXivar.WebApi.Client.Arxivar.NetFx.2.5.4\lib\net45\Abletech.WebApi.Client.Arxivar.NetFx.dll</HintPath>
+    </Reference>
     <Reference Include="JsonSubTypes, Version=1.8.0.0, Culture=neutral, PublicKeyToken=ee75fc290dbc1176, processorArchitecture=MSIL">
       <HintPath>..\packages\JsonSubTypes.1.8.0\lib\net47\JsonSubTypes.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.1.0\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,10 +99,6 @@
     <ProjectReference Include="..\IO.Swagger.Management\IO.Swagger.Management.csproj">
       <Project>{ec16b38e-a501-447b-970d-b4a28d060cc0}</Project>
       <Name>IO.Swagger.Management</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
-      <Project>{7fe1c247-6fb5-413c-b24c-fcae3dc1bd14}</Project>
-      <Name>IO.Swagger</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
