@@ -17,3 +17,6 @@ You can find example about:
 # Development
 Want to contribute?
 Great!
+
+# Visitors Count
+![](https://countrush-prod.azurewebsites.net/l/badge/?repository=zanardini/ARXivarNext-WebApi)
